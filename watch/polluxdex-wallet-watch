@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# PolluxDEX Wallet page watcher (plan v5 launch requirement 1). Runs every 5 minutes on NODE 2 (pg-db), a different
+# server from the one that used to serve the wallet. It fetches https://wallet.polluxdex.com/ exactly as a visitor
+# does and alerts Discord when:
+#   - the page's sha256 is not in the published release list (someone changed the wallet page), or
+#   - its security policy is missing / weakened, or a COOP header appears, or
+#   - it can't be reached 3 times in a row.
+# It also says when things are back to normal. Read-only: it never logs in anywhere and stores only its last status.
+# Open: anyone can run this same script against the public page and the public release list.
+set -uo pipefail
+ENV=${WATCH_ENV:-/etc/polluxdex-wallet-watch.env}
+STATE_DIR=${STATE_DIR:-/var/lib/polluxdex-wallet-watch}
+[ -r "$ENV" ] && . "$ENV"
+WALLET_URL=${WALLET_URL:-https://wallet.polluxdex.com/}
+ALLOW_FILE=${ALLOW_FILE:-/etc/polluxdex-wallet-watch.allow}
+ALLOW_URL=${ALLOW_URL:-}
+REMIND_SECS=${REMIND_SECS:-21600}
+mkdir -p "$STATE_DIR"
+exec 9>"$STATE_DIR/lock"; flock -n 9 || exit 0
+
+post() { # $1 = message. The webhook URL is read from the env file and never printed.
+  [ -n "${DISCORD_WEBHOOK_URL:-}" ] || { echo "no DISCORD_WEBHOOK_URL set" >&2; return 1; }
+  python3 -I -c 'import json,sys; print(json.dumps({"content": sys.argv[1][:1900], "allowed_mentions": {"parse": []}}))' "$1" \
+    | curl -fsS -m 20 -H 'Content-Type: application/json' --data-binary @- "$DISCORD_WEBHOOK_URL" >/dev/null
+}
+
+if [ "${1:-}" = "--test" ]; then post "✅ PolluxDEX wallet watcher installed on $(hostname). Checking $WALLET_URL every 5 minutes." && echo "test alert sent"; exit; fi
+
+allowed=$(cat "$ALLOW_FILE" 2>/dev/null; [ -n "$ALLOW_URL" ] && curl -fsS -m 20 "$ALLOW_URL" 2>/dev/null)
+allowed=$(echo "$allowed" | grep -oE '^[0-9a-f]{64}' | sort -u)
+
+body=$(mktemp); trap 'rm -f "$body"' EXIT
+status="ok"; detail=""
+if ! curl -fsS -m 30 -D "$body.h" -o "$body" "$WALLET_URL" 2>/dev/null; then
+  fails=$(( $(cat "$STATE_DIR/fails" 2>/dev/null || echo 0) + 1 )); echo "$fails" > "$STATE_DIR/fails"
+  if [ "$fails" -ge 3 ]; then status="down"; detail="$WALLET_URL could not be reached $fails times in a row."; else rm -f "$body.h"; exit 0; fi
+else
+  echo 0 > "$STATE_DIR/fails"
+  sha=$(sha256sum "$body" | cut -d' ' -f1)
+  h=$(tr -d '\r' < "$body.h"); rm -f "$body.h"
+  if [ -z "$allowed" ]; then status="bad"; detail="The release list is empty or unreadable, so the page can't be checked."
+  elif ! echo "$allowed" | grep -qx "$sha"; then status="bad"; detail="The wallet page is NOT a published release: sha256 $sha. Someone may have changed it. Do not sign anything with the PolluxDEX Wallet until this is explained."
+  elif ! echo "$h" | grep -qi "^content-security-policy:.*connect-src 'none'"; then status="bad"; detail="The wallet page's security policy is missing or weakened (sha256 ${sha:0:16}…)."
+  elif echo "$h" | grep -qi '^cross-origin-opener-policy'; then status="bad"; detail="A COOP header appeared on the wallet page."
+  else detail="sha256 ${sha:0:16}… is a published release."; fi
+fi
+
+prev=$(cat "$STATE_DIR/status" 2>/dev/null || echo "ok")
+last=$(cat "$STATE_DIR/alerted" 2>/dev/null || echo 0)
+now=$(date +%s)
+echo "$status" > "$STATE_DIR/status"
+if [ "$status" != "ok" ]; then
+  if [ "$prev" = "ok" ] || [ $((now - last)) -ge "$REMIND_SECS" ]; then
+    post "🚨 PolluxDEX WALLET PAGE ALERT ($status): $detail" && echo "$now" > "$STATE_DIR/alerted"
+  fi
+elif [ "$prev" != "ok" ]; then
+  post "✅ PolluxDEX wallet page back to normal: $detail" && echo 0 > "$STATE_DIR/alerted"
+fi
+echo "$(date -u +%FT%TZ) $status $detail" | cut -c1-300
