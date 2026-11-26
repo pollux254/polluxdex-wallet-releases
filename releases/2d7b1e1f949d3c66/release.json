@@ -1,0 +1,51 @@
+{
+  "name": "PolluxDEX Wallet",
+  "version": "0.1.5",
+  "host": "wallet.polluxdex.com",
+  "file": "wallet.html",
+  "sha256": "2d7b1e1f949d3c66572921c4ec46eaf0cc4928237c7ed64259d88f96ea463e69",
+  "bytes": 1114376,
+  "dexOrigins": [
+    "https://polluxdex.com"
+  ],
+  "metaCsp": "default-src 'none'; script-src 'sha256-nV1AUh/iZBkpQTeGNy+eOFj3/yWTI24+yHkhr8DnL8g='; style-src 'sha256-Q9FXOrBzIcw9PIxiqNMLQTAFRSLi6kPNBCh/VShX81c='; img-src 'self'; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; form-action 'none'; base-uri 'none'; require-trusted-types-for 'script'; trusted-types 'none'",
+  "headerCsp": "default-src 'none'; script-src 'sha256-nV1AUh/iZBkpQTeGNy+eOFj3/yWTI24+yHkhr8DnL8g='; style-src 'sha256-Q9FXOrBzIcw9PIxiqNMLQTAFRSLi6kPNBCh/VShX81c='; img-src 'self'; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; form-action 'none'; base-uri 'none'; require-trusted-types-for 'script'; trusted-types 'none'; frame-ancestors 'none'",
+  "headers": [
+    [
+      "Content-Type",
+      "text/html; charset=utf-8"
+    ],
+    [
+      "Content-Security-Policy",
+      "default-src 'none'; script-src 'sha256-nV1AUh/iZBkpQTeGNy+eOFj3/yWTI24+yHkhr8DnL8g='; style-src 'sha256-Q9FXOrBzIcw9PIxiqNMLQTAFRSLi6kPNBCh/VShX81c='; img-src 'self'; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'; form-action 'none'; base-uri 'none'; require-trusted-types-for 'script'; trusted-types 'none'; frame-ancestors 'none'"
+    ],
+    [
+      "Cache-Control",
+      "no-store, max-age=0"
+    ],
+    [
+      "Referrer-Policy",
+      "no-referrer"
+    ],
+    [
+      "X-Content-Type-Options",
+      "nosniff"
+    ],
+    [
+      "X-Frame-Options",
+      "DENY"
+    ],
+    [
+      "X-Robots-Tag",
+      "noindex, nofollow, noarchive"
+    ],
+    [
+      "Cross-Origin-Resource-Policy",
+      "same-origin"
+    ],
+    [
+      "Permissions-Policy",
+      "publickey-credentials-create=(self), publickey-credentials-get=(self), clipboard-write=(self), clipboard-read=(), camera=(), microphone=(), geolocation=(), display-capture=(), usb=(), serial=(), hid=(), payment=(), interest-cohort=()"
+    ]
+  ]
+}
