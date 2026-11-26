@@ -4,6 +4,15 @@ The PolluxDEX Wallet runs as one web page, **https://wallet.polluxdex.com/**. Yo
 device; the page has no internet permission. You still trust whoever serves that page, as with any website wallet.
 This repository lets anyone check that the page being served is a published release, not a modified one.
 
+## Current version
+
+| Version | Fingerprint (sha256) | Live since |
+|---|---|---|
+| **0.1.2** | `8ed2ea03fa82f7eb37995f93ca6d742ccc18b54d6ec003a7c2582e74d686efb8` | 2026-11-25 |
+
+The wallet shows its version at the bottom of its screen ("v0.1.2"). Older versions: [RELEASES.md](RELEASES.md).
+
+## What's in this repository
 - `SHA256SUMS`: the fingerprints of the versions that are **allowed right now** (normally just the newest).
 - `releases/<fingerprint>/release.json`: the exact security headers that version must be served with.
 - `RELEASES.md`: the full history.
