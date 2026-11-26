@@ -2,7 +2,8 @@
 
 | Version | Fingerprint (sha256 of wallet.html) | Published | Allowed now |
 |---|---|---|---|
-| **0.1.3** | `7744726951e914578df61c18e10fe7cb6c66ecb5b43813bb1f21b06ed712d76e` | 2026-11-25 | yes (one screen per swap: full info, Approve or Decline; no matching code; live on Cloudflare 2026-11-25) |
+| **0.1.4** | `17ee60b19fb336fcaf4355502391c4ebeb31584a56f8519fc90cc477025ff6f5` | 2026-11-26 | yes (Face ID prompt comes up by itself and is the approval; one info box; allowed before deploy) |
+| 0.1.3 | `7744726951e914578df61c18e10fe7cb6c66ecb5b43813bb1f21b06ed712d76e` | 2026-11-25 | yes (one screen per swap: full info, Approve or Decline; no matching code; live on Cloudflare 2026-11-25) |
 | 0.1.2 | `8ed2ea03fa82f7eb37995f93ca6d742ccc18b54d6ec003a7c2582e74d686efb8` | 2026-11-25 | no (v0.1.2: pinned updates; replaced 2026-11-25 by v0.1.3) |
 | 0.1.1 | `6a2c68f3270435330dcb741a4a61ca8e5ff047a9b7b03ae8d9104d4a09cc6235` | 2026-11-25 | no (v0.1.1: never deployed; replaced by v0.1.2, which includes it) |
 | 0.1.0 | `90ebf35d9459caa0b0a542741b5d8d9fdb68148ecea8f6a05e30a7dd37ab8a07` | 2026-11-25 | no (v0.1.0; replaced 2026-11-25 by v0.1.2) |
