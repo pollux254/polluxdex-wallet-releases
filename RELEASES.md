@@ -2,8 +2,8 @@
 
 | Version | Fingerprint (sha256 of wallet.html) | Published | Allowed now |
 |---|---|---|---|
-| **0.1.9** | `1011f80640dee89eec7d2fade385a63f1403c6a97d6f504a0f5125196c2cde63` | 2026-11-26 | yes (public beta: Beta notice, setup-step reports for the beta logs; allowed before deploy) |
-| 0.1.8 | `d045d22dd9febe7aa1b1897de82096d9006cd24a91576939c10f39023bc08bf3` | 2026-11-26 | yes (wording: trust sentence fixed, clearer MASTER-path screens, exact top-up amount; live on Cloudflare 2026-11-26) |
+| **0.1.9** | `1011f80640dee89eec7d2fade385a63f1403c6a97d6f504a0f5125196c2cde63` | 2026-11-26 | yes (public beta: Beta notice, setup-step reports for the beta logs; live on Cloudflare 2026-11-26, public beta) |
+| 0.1.8 | `d045d22dd9febe7aa1b1897de82096d9006cd24a91576939c10f39023bc08bf3` | 2026-11-26 | no (wording fixes; replaced 2026-11-26 by v0.1.9) |
 | 0.1.7 | `909eb144813da7a166486f43c44424eea4c4702f0be184280b23c4e32bbfa81e` | 2026-11-26 | no (ledger check on the first screen + close old emergency tickets; replaced 2026-11-26 by v0.1.8) |
 | 0.1.6 | `2e0fc931d0f65827e58d7feb3f9ce8c61869c8c3f5c594609da2b31f7fbecb9d` | 2026-11-26 | no (simple swap card; replaced 2026-11-26 by v0.1.7) |
 | 0.1.5 | `2d7b1e1f949d3c66572921c4ec46eaf0cc4928237c7ed64259d88f96ea463e69` | 2026-11-26 | no (one approval for trust line + swap; replaced 2026-11-26 by v0.1.6) |
