@@ -8,9 +8,9 @@ This repository lets anyone check that the page being served is a published rele
 
 | Version | Fingerprint (sha256) | Live since |
 |---|---|---|
-| **0.1.6** | `2e0fc931d0f65827e58d7feb3f9ce8c61869c8c3f5c594609da2b31f7fbecb9d` | 2026-11-26 |
+| **0.1.7** | `909eb144813da7a166486f43c44424eea4c4702f0be184280b23c4e32bbfa81e` | 2026-11-26 |
 
-The wallet shows its version at the bottom of its screen ("v0.1.6"). Older versions: [RELEASES.md](RELEASES.md).
+The wallet shows its version at the bottom of its screen ("v0.1.7"). Older versions: [RELEASES.md](RELEASES.md).
 
 ## What's in this repository
 - `SHA256SUMS`: the fingerprints of the versions that are **allowed right now** (normally just the newest).

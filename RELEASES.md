@@ -2,8 +2,8 @@
 
 | Version | Fingerprint (sha256 of wallet.html) | Published | Allowed now |
 |---|---|---|---|
-| **0.1.7** | `909eb144813da7a166486f43c44424eea4c4702f0be184280b23c4e32bbfa81e` | 2026-11-26 | yes (ledger check on the first screen of the MASTER / PHONE KEY paper paths; close emergency tickets from old devices; allowed before deploy) |
-| 0.1.6 | `2e0fc931d0f65827e58d7feb3f9ce8c61869c8c3f5c594609da2b31f7fbecb9d` | 2026-11-26 | yes (simple swap card: Buy/Sell, pay, get, price, route, fees; live on Cloudflare 2026-11-26) |
+| **0.1.7** | `909eb144813da7a166486f43c44424eea4c4702f0be184280b23c4e32bbfa81e` | 2026-11-26 | yes (ledger check on the first screen of the MASTER / PHONE KEY paper paths; close emergency tickets from old devices; live on Cloudflare 2026-11-26) |
+| 0.1.6 | `2e0fc931d0f65827e58d7feb3f9ce8c61869c8c3f5c594609da2b31f7fbecb9d` | 2026-11-26 | no (simple swap card; replaced 2026-11-26 by v0.1.7) |
 | 0.1.5 | `2d7b1e1f949d3c66572921c4ec46eaf0cc4928237c7ed64259d88f96ea463e69` | 2026-11-26 | no (one approval for trust line + swap; replaced 2026-11-26 by v0.1.6) |
 | 0.1.4 | `17ee60b19fb336fcaf4355502391c4ebeb31584a56f8519fc90cc477025ff6f5` | 2026-11-26 | no (Face ID prompt by itself; replaced 2026-11-26 by v0.1.5) |
 | 0.1.3 | `7744726951e914578df61c18e10fe7cb6c66ecb5b43813bb1f21b06ed712d76e` | 2026-11-25 | no (one screen per swap; replaced 2026-11-26 by v0.1.4) |
