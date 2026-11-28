@@ -2,8 +2,8 @@
 
 | Version | Fingerprint (sha256 of wallet.html) | Published | Allowed now |
 |---|---|---|---|
-| **0.2.5** | `2c34c50914079cff64f4a444c342b6ef5cc84a87be992223f4700c3c9f89a57d` | 2026-11-27 | yes (allowed, not yet live; audit H1–H4 / L1 / L3 / M2 / M3: kill switch, no MASTER on the wallet page, approved-list pin, automatic risk checks, Send screen, 15-minute phone pairing, careful warnings) |
-| 0.1.9 | `1011f80640dee89eec7d2fade385a63f1403c6a97d6f504a0f5125196c2cde63` | 2026-11-26 | yes (still live until 0.2.5 is deployed to Cloudflare Pages) |
+| **0.2.5** | `2c34c50914079cff64f4a444c342b6ef5cc84a87be992223f4700c3c9f89a57d` | 2026-11-27 | yes (live on Cloudflare 2026-11-27; audit H1–H4 / L1 / L3 / M2 / M3: kill switch, no MASTER on the wallet page, approved-list pin, automatic risk checks, Send screen, 15-minute phone pairing, careful warnings) |
+| 0.1.9 | `1011f80640dee89eec7d2fade385a63f1403c6a97d6f504a0f5125196c2cde63` | 2026-11-26 | no (historical/retired; replaced 2026-11-27 by v0.2.5) |
 | 0.1.8 | `d045d22dd9febe7aa1b1897de82096d9006cd24a91576939c10f39023bc08bf3` | 2026-11-26 | no (wording fixes; replaced 2026-11-26 by v0.1.9) |
 | 0.1.7 | `909eb144813da7a166486f43c44424eea4c4702f0be184280b23c4e32bbfa81e` | 2026-11-26 | no (ledger check on the first screen + close old emergency tickets; replaced 2026-11-26 by v0.1.8) |
 | 0.1.6 | `2e0fc931d0f65827e58d7feb3f9ce8c61869c8c3f5c594609da2b31f7fbecb9d` | 2026-11-26 | no (simple swap card; replaced 2026-11-26 by v0.1.7) |
